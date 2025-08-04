@@ -12,8 +12,8 @@
 |F         | #9        |
 |G         | -         |
 |H         | #11       |
-|I         |           |
-|J         | #4        |
+|I         | #4          |
+|J         | #5        |
 |K         | #6        |
 |L         | -         |
 |M         | 13        |
@@ -60,6 +60,14 @@ The extended WCS start at #7000 - #7006 and increment by 20 for each new WCS val
 | ...              | ...           |
 | G54.1P48         | #7941 - #7946 |
 
+or D00 controls, 300 extended WCS are available.
+
+| WCS              |  Parameters     |
+|------------------|-----------------|
+| G54.1P1          | #14001 - #14006 |
+| G54.1P2          | #14021 - #14026 |
+| ...              | ...             |
+| G54.1P48         | #19981 - #19986 |
 
 Note: Most Brother macros expect a negative value when passing in an extended WCS offset number. 
 So `G54.1P1` is referenced by `W-1` in a macro call. 
@@ -69,7 +77,10 @@ To compute the register value in a macro, use this equation (where W is the WCS 
 ```
 parameter# = 7001 + (-W-1 * 20)
 ```
-
+For D00:
+```
+parameter# = 14001 + (-W-1 * 20)
+```
 
 ### Sample WCS Register Calculation in MACRO
 
@@ -97,3 +108,42 @@ GOTO3
 
 N3
 ```
+
+
+### Positioni Variables
+Machine Coordinate System (Tool Offseet Included):
+
+| Variable #     |  WCS Coordinate |
+|----------------|-----------------|
+| #5021          | X               |
+| #5022          | Y               |
+| #5023          | Z               |
+| #5024~#5028    | Additional Axes |
+
+Workpiece Coordinate System (Tool Offseet Included):
+
+| Variable #     |  WCS Coordinate |
+|----------------|-----------------|
+| #5041          | X               |
+| #5042          | Y               |
+| #5043          | Z               |
+| #5044~#5048    | Additional Axes |
+
+Skip Signals (Tool Offseet Included):
+
+| Variable #     |  WCS Coordinate |
+|----------------|-----------------|
+| #5061          |X                |
+| #5062          |Y                |
+| #5063          |Z                |
+| #5064~#5068    |Additional Axes  |
+
+### Usefull Variable Definitions
+
+| Variable #     |  Description |
+|----------------|-----------------|
+| #11001~#11099  |T01~T99          |
+| #11201~#11299  |T201~T299        |
+| #4120          |T Code           |
+| #4111.         |H Code           |
+
