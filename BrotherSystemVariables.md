@@ -110,7 +110,7 @@ N3
 ```
 
 
-### Positioni Variables
+### Positional Variables
 Machine Coordinate System (Tool Offseet Included):
 
 | Variable #     |  WCS Coordinate |
@@ -131,19 +131,56 @@ Workpiece Coordinate System (Tool Offseet Included):
 
 Skip Signals (Tool Offseet Included):
 
-| Variable #     |  WCS Coordinate |
-|----------------|-----------------|
-| #5061          |X                |
-| #5062          |Y                |
-| #5063          |Z                |
-| #5064~#5068    |Additional Axes  |
+| Variable #     |  WCS Coordinate  |
+|----------------|------------------|
+| #5061          | X                |
+| #5062          | Y                |
+| #5063          | Z                |
+| #5064~#5068    | Additional Axes  |
 
-### Usefull Variable Definitions
+### Usefull System Variables 
 
-| Variable #     |  Description |
-|----------------|-----------------|
-| #11001~#11099  |T01~T99          |
-| #11201~#11299  |T201~T299        |
-| #4120          |T Code           |
-| #4111.         |H Code           |
+| Variable #     |  Description     |
+|----------------|------------------|
+| #11001~#11099  | T01~T99          |
+| #11201~#11299  | T201~T299        |
+| #4120          | T Code           |
+| #4111          | H Code           |
+| #3801 ~ #3804  | Workpiece counter 1 Count, Current, Completion, Ending|
+| #3811 ~ #3814  | Workpiece counter 2 Count, Current, Completion, Ending|
+| #3821 ~ #3824  | Workpiece counter 3 Count, Current, Completion, Ending|
+| #3831 ~ #3834  | Workpiece counter 4 Count, Current, Completion, Ending|
+
+
+### Useful G/M Codes
+
+| Code        |  Description                   | Modal/Oneshot |
+|-------------|--------------------------------|---------------|
+| M159        | Disable lookahead (one block)  | One-Shot      |
+| M211 ~ M214 | Workpiece Counter 1 ~ 4 set    | Modal         |
+| M221 ~ M224 | Workpiece Counter 1 ~ 4 cancel | Modal         |
+| M252 ~ M254 | Tap accel constant Hi/Med/Low  | Modal         |
+| M300, M301  | Z-axis Perimeter Mode (Z hop)  | Modal         |
+| M442, M443  | Unclamp, Clamp A axis          | Modal         |
+| M442, M443  | Unclamp, Clamp A axis          | Modal         |
+| M442, M443  | Unclamp, Clamp A axis          | Modal         |
+
+### High Accuracy Machine Modes (M298)
+
+| Code        |  Description     |
+|-------------|------------------|
+| M298 L0     | Off              |
+| M298 L1     | Standard         |
+| M298 L2     | Rough            |
+| M298 L3     | Medium Rough     |
+| M298 L4     | Medium Rough S   |
+| M298 L5     | Finishing        |
+| M298 L6     | Finishing S      |
+| M298 L7     | Adjustment A     |
+| M298 L8     | Adjustment B     |
+| M298 L9     | Adjustment C     |
+| M298 L21    | Accuracy Spec. A |
+| M298 L22    | Accuracy Spec. B |
+| M298 L23    | Accuracy Spec. C |
+
 
